@@ -1,8 +1,10 @@
 import {DatabaseSync} from 'node:sqlite'
 const db = new DatabaseSync(':memory')
 
+db.exec('DROP TABLE IF EXISTS todos;');
+db.exec('DROP TABLE IF EXISTS users;');
+
 db.exec(`
-        DROP TABLE IF EXISTS users;
         CREATE TABLE users (
             id INTEGER PRIMARY KEY AUTOINCREMENT, 
             username TEXT UNIQUE,
@@ -11,7 +13,6 @@ db.exec(`
     `)
 
 db.exec(`
-        DROP TABLE IF EXISTS todos;
         CREATE TABLE todos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER,
