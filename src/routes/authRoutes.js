@@ -20,10 +20,10 @@ router.post('/register', (req, res) => {
         insertTodo.run(result.lastInsertRowid, defaultTodo)
 
         const token = jwt.sign({id: result.lastInsertRowid}, process.env.JWT_SECRET, {expiresIn: '24h'})
-        res.json({token})
+        return res.json({token})
     } catch (err) {
         console.log(err.message)
-        res.sendStatus(503)
+        return res.sendStatus(503)
     }
 
     res.sendStatus(201)
