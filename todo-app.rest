@@ -12,6 +12,17 @@ Content-Type: application/json
 
 
 ###
+// This below shows that middleware can accept JSON tokens from past server instances since it is encoded with JWT secret key but it still returns the id from the previous instance so if the previous instance token had an id of 2 and you try to run it on the new instance which only has 1 registered user, then you get an error. Essentially, it's not checking if the token is from this instance.
+POST http://localhost:5003/auth/register
+Content-Type: application/json
+
+{
+    "username": "bilgamesh@gmail.com",
+    "password": "223123123"
+}
+
+
+###
 POST http://localhost:5003/auth/login
 Content-Type: application/json
 
@@ -19,3 +30,4 @@ Content-Type: application/json
     "username": "gilgamesh@gmail.com",
     "password": "123123123"
 }
+
