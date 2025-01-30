@@ -31,3 +31,17 @@ Content-Type: application/json
     "password": "123123123"
 }
 
+
+### Fetch all todos GET /TODOS (protected)
+GET http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM4MjAwNjExLCJleHAiOjE3MzgyODcwMTF9.bUoHKIpkcyJkxVzjj9z5yjXLfVBynkSBa1J8igXOAnE
+
+
+### Creates a new todo POST /TODOS (protected)
+POST http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM4MjAwNjExLCJleHAiOjE3MzgyODcwMTF9.bUoHKIpkcyJkxVzjj9z5yjXLfVBynkSBa1J8igXOAnE
+Content-Type: application/json
+
+{
+    "task": "Finish coding the projects"
+}
